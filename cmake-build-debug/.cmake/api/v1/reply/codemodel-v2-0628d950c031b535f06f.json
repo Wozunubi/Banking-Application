@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/georg/Documents/Programming Projects/Banking Application/cmake-build-debug",
-		"source" : "C:/Users/georg/Documents/Programming Projects/Banking Application"
+		"build" : "C:/Users/georg/Documents/GitHub/Banking-Application/cmake-build-debug",
+		"source" : "C:/Users/georg/Documents/GitHub/Banking-Application"
 	},
 	"version" : 
 	{

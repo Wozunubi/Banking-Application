@@ -37,7 +37,7 @@ int main() {
     std::string input, name, pin;
 
     do {
-        std::cout << "A. Log-in\nB. Sign-up"; std::cin >> input;
+        std::cout << "A. Log-in\nB. Sign-up\n"; std::cin >> input;
         std::cout << "Name:\n"; std::cin >> name;
         std::cout << "PIN:\n"; std::cin >> pin;
 
