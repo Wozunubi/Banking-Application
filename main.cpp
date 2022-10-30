@@ -1,6 +1,6 @@
 #include <iostream>
 #include <utility>
-#include <vector>
+#include <map>
 #include <string>
 
 class bankAcc {
@@ -33,23 +33,46 @@ void bankAcc::showBal() {
 }
 
 int main() {
-    std::vector<bankAcc> users;
+    std::map<std::string, bankAcc*> users;
     std::string input, name, pin;
 
     do {
-        std::cout << "A. Log-in\nB. Sign-up\n"; std::cin >> input;
+        std::cout << "A. Log-in\nB. Sign-up\nC. Quit\n";std::cin >> input;
+
+        if (input == "C") break;
+
         std::cout << "Name:\n"; std::cin >> name;
         std::cout << "PIN:\n"; std::cin >> pin;
 
         if (input == "A") {
             //Action
             std::cout << "You Have Been Logged-In Successfully\n";
-            break;
+            do {
+                std::cout << "A. Withdraw\nB. Deposit\nC. Current Balance\nD. Edit Account\nE. Delete Account\nF. Back\n"; std::cin >> input;
+
+                if (input == "A") {
+
+                } else if (input == "B") {
+
+                } else if (input == "C") {
+
+                } else if (input == "D") {
+
+                } else if (input == "E") {
+
+                } else if (input == "F") {
+                    break;
+                }
+            } while (true);
         } else if (input == "B") {
-            //Action
+            users.insert({name, new bankAcc(name, pin, 0)});
             std::cout << "Your Account Has Been Initialized Successfully\n";
         }
     } while (true);
+
+    std::cout << users["George"]->name;
+
+    std::cin >> input;
 
     return 0;
 }
