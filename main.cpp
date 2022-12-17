@@ -12,7 +12,7 @@ public:
     void withdraw();
     void deposit();
     void showBal();
-    void editAcc();
+    std::string editAcc();
 };
 
 bankAcc::bankAcc(std::string x, std::string y, int z) {
@@ -50,8 +50,19 @@ void bankAcc::showBal() {
     std::cout << "Current Balance is $" << bal << "\n";
 }
 
-void bankAcc::editAcc() {
-    // do stuff
+std::string bankAcc::editAcc() {
+    std::string input;
+
+    std::cout << "Enter Your PIN to Continue\n"; std::cin >> input;
+
+    if (pin == input) {
+        std::cout << "New Name:\n"; std::cin >> name;
+        std::cout << "New PIN:\n"; std::cin >> pin;
+    } else {
+        std::cout << "You Are Not Authorized\n";
+    }
+
+    return name;
 }
 
 int main() {
@@ -83,12 +94,12 @@ int main() {
                     } else if (input == "C") {
                         users[name]->showBal();
                     } else if (input == "D") {
-                        users[name]->editAcc();
+                        //users[name]->editAcc();
+                        users.extract(name).key() = users[name]->editAcc();
+                        users.insert(std::move(users.extract(name)));
                     } else if (input == "E") {
                         std::cout << "Confirm Delete by Typing PIN\n"; std::cin >> input;
-                        if (users[name]->pin == pin) {
-                            // delete
-                        }
+                        if (users[name]->pin == pin) users.erase(name);
                     } else if (input == "F") {
                         break;
                     }
